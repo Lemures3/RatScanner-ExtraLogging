@@ -74,6 +74,7 @@ public class RatScannerMain : INotifyPropertyChanged
 
 		Logger.LogInfo("Setting temporary default item...");
 		ItemScans.Enqueue(new DefaultItemScan(true));
+		Logger.LogInfo(item.Id);
 
 		Logger.LogInfo("Checking for item data updates...");
 		CheckForItemDataUpdates();
@@ -125,6 +126,7 @@ public class RatScannerMain : INotifyPropertyChanged
 			var itemScan = new DefaultItemScan(false);
 			itemScan.BestTraderPrice = itemScan.MatchedItem.GetMaxTraderPrice();
 			ItemScans.Enqueue(itemScan);
+			Logger.LogInfo(item.Id);
 
 			Logger.LogInfo("Enabling hotkeys...");
 			HotkeyManager.RegisterHotkeys();
@@ -287,6 +289,7 @@ public class RatScannerMain : INotifyPropertyChanged
 			tempNameScan.BestTraderPrice = tempNameScan.MatchedItem.GetBestTrader().price;
 
 			ItemScans.Enqueue(tempNameScan);
+			Logger.LogInfo(item.Id);
 
 			RefreshOverlay();
 		}
@@ -381,6 +384,7 @@ public class RatScannerMain : INotifyPropertyChanged
 			};
 
 			ItemScans.Enqueue(tempIconScan);
+			Logger.LogInfo(item.Id);
 			RefreshOverlay();
 		}
 	}
