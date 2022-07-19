@@ -335,6 +335,7 @@ public class RatScannerMain : INotifyPropertyChanged
 				};
 
 				ItemScans.Enqueue(tempNameScan);
+				Logger.LogInfo(item.Id);
 			}
 			RefreshOverlay();
 		}
